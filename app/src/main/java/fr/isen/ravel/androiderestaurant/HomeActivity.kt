@@ -20,11 +20,11 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //initialisation
-        binding = ActivityHomeBinding.inflate(layoutInflater) //inflate est une fonction statique
+        //binding = ActivityHomeBinding.inflate(layoutInflater) //inflate est une fonction statique
         // utilisation
         setContentView(R.layout.activity_home) // PAS DEUX FOIS CETTE LIGNE !!!
 
-        binding.Entree.setOnClickListener{
+        findViewById<TextView>(R.id.Entree).setOnClickListener{
             Log.d("home_entree", "Vous avez cliquer sur Entree")
         }
 
