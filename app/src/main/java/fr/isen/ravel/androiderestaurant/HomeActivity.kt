@@ -1,5 +1,6 @@
 package fr.isen.ravel.androiderestaurant
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,17 +17,22 @@ import fr.isen.ravel.androiderestaurant.databinding.ActivityHomeBinding
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding // declaration
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //initialisation
-        //binding = ActivityHomeBinding.inflate(layoutInflater) //inflate est une fonction statique
+        binding = ActivityHomeBinding.inflate(layoutInflater) //inflate est une fonction statique
         // utilisation
-        setContentView(R.layout.activity_home) // PAS DEUX FOIS CETTE LIGNE !!!
+        //setContentView(R.layout.activity_home) // PAS DEUX FOIS CETTE LIGNE !!!
+        setContentView(binding.root)
 
-        findViewById<TextView>(R.id.Entree).setOnClickListener{
-            Log.d("home_entree", "Vous avez cliquer sur Entree")
+        binding.Entree.setOnClickListener {
+            val intent = Intent(this, Entree::class.java)
+            startActivity(intent)
+            // gerer le clic sur le bouton entree
         }
+        //findViewById<TextView>(R.id.Entree).setOnClickListener{
+        //  Log.d("home_entree", "Vous avez cliquer sur Entree")
+        //}
 
         findViewById<TextView>(R.id.Plat).setOnClickListener {
             Log.d("Plats", "Vous avez cliquer sur Plats")
