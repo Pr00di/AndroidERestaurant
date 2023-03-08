@@ -3,7 +3,7 @@ package fr.isen.ravel.androiderestaurant
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class Entree : AppCompatActivity()
+class entree : AppCompatActivity()
 {
     override fun onCreate(savedInstanceState: Bundle?)
     {
