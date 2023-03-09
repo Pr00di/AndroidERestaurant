@@ -3,11 +3,11 @@ package fr.isen.ravel.androiderestaurant
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class entree : AppCompatActivity()
+class CategoryActivity : AppCompatActivity()
 {
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_entree)
+        setContentView(R.layout.activity_category)
     }
 }
