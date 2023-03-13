@@ -15,43 +15,31 @@ import fr.isen.ravel.androiderestaurant.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity()
 {
-
-    private lateinit var binding: ActivityHomeBinding // declaration
+    //private lateinit var binding: ActivityHomeBinding // declaration
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-
-        //initialisation
-        //binding = ActivityHomeBinding.inflate(layoutInflater) //inflate est une fonction statique
-        // utilisation
-        //setContentView(binding.root)
         setContentView(R.layout.activity_home)
 
         // Trouvez les éléments de menu dans votre mise en page
-        val Entrees_Button = findViewById<TextView>(R.id.Entree)
-        val Plats_Button = findViewById<TextView>(R.id.Plat)
-        val Desserts_Button = findViewById<TextView>(R.id.Desserts)
-
-        // Ajoutez un écouteur de clic pour chaque élément de menu
-        Entrees_Button.setOnClickListener { openCategoryActivity("Entrees") }
-        Plats_Button.setOnClickListener { openCategoryActivity("Plats") }
-        Desserts_Button.setOnClickListener { openCategoryActivity("Desserts") }
-
-        /*binding.Entree.setOnClickListener {
+        val entreesButton = findViewById<TextView>(R.id.Entree)
+        entreesButton.setOnClickListener {
             val intent = Intent(this , CategoryActivity::class.java)
-            //startActivity(intent)
-            // gerer le clic sur le bouton entree
+            intent.putExtra("CATEGORY_NAME" , "Entrees")
+            startActivity(intent)
         }
-
-        binding.Plat.setOnClickListener {
+        val platsButton = findViewById<TextView>(R.id.Plat)
+        platsButton.setOnClickListener {
             val intent = Intent(this , CategoryActivity::class.java)
-            //startActivity(intent)
+            intent.putExtra("CATEGORY_NAME" , "Plats")
+            startActivity(intent)
         }
-
-        binding.Desserts.setOnClickListener {
+        val dessertsButton = findViewById<TextView>(R.id.Desserts)
+        dessertsButton.setOnClickListener {
             val intent = Intent(this , CategoryActivity::class.java)
-            //startActivity(intent)
-        }*/
+            intent.putExtra("CATEGORY_NAME" , "Desserts")
+            startActivity(intent)
+        }
     }
 
     // Méthode pour ouvrir une nouvelle activité en fonction de la catégorie sélectionnée
@@ -61,6 +49,7 @@ class HomeActivity : AppCompatActivity()
         startActivity(intent)
     }
 
+    //Permet d'ajouter un log dans le terminal pour indiquer que l'activité Home est détruite
     override fun onDestroy() {
         super.onDestroy()
         Log.d("MyActivity", "Home Activity destroyed")
@@ -68,4 +57,30 @@ class HomeActivity : AppCompatActivity()
 }
 //geeksforgeeks site pour recyclerview
 //
+
+// Ajoutez un écouteur de clic pour chaque élément de menu
+/*entreesButton.setOnClickListener { openCategoryActivity("Entrees") }
+platsButton.setOnClickListener { openCategoryActivity("Plats") }
+dessertsButton.setOnClickListener { openCategoryActivity("Desserts") }*/
+
+/*initialisation
+binding = ActivityHomeBinding.inflate(layoutInflater) //inflate est une fonction statique
+ utilisation
+setContentView(binding.root)
+
+binding.Entree.setOnClickListener {
+    val intent = Intent(this , CategoryActivity::class.java)
+    //startActivity(intent)
+    // gerer le clic sur le bouton entree
+}
+
+binding.Plat.setOnClickListener {
+    val intent = Intent(this , CategoryActivity::class.java)
+    //startActivity(intent)
+}
+
+binding.Desserts.setOnClickListener {
+    val intent = Intent(this , CategoryActivity::class.java)
+    //startActivity(intent)
+}*/
 
