@@ -15,15 +15,6 @@
             android:name=".CategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".deserts"
-            android:exported="false" />
-        <activity
-            android:name=".dishes"
-            android:exported="false" />
-        <activity
-            android:name=".entree"
-            android:exported="false" />
-        <activity
             android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>

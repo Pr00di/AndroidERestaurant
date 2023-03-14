@@ -5,4 +5,23 @@
     <string name="home_Entree">Entree</string>
     <string name="home_Plats">Plats</string>
     <string name="home_Desserts">Desserts</string>
+
+    <string name="entree1">Entree 1</string>
+    <string name="entree2">Entree 2</string>
+    <string name="entree3">Entree 3</string>
+    <string name="entree4">Entree 4</string>
+    <string name="entree5">Entree 5</string>
+
+    <string name="plats1">Plat 1</string>
+    <string name="plats2">Plat 2</string>
+    <string name="plats3">Plat 3</string>
+    <string name="plats4">Plat 4</string>
+    <string name="plats5">Plat 5</string>
+
+    <string name="dessert1">Dessert 1</string>
+    <string name="dessert2">Dessert 2</string>
+    <string name="dessert3">Dessert 3</string>
+    <string name="dessert4">Dessert 4</string>
+    <string name="dessert5">Dessert 5</string>
+
 </resources>
