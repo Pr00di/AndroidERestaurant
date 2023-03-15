@@ -5,19 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     android:rotationX="0"
     android:visibility="visible"
     tools:context=".HomeActivity">
 
     <TextView
         android:id="@+id/Titre_resto"
-        android:layout_width="275dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="77dp"
         android:text="Bienvenue chez Toto"
-        android:textColor="#F40808"
-        android:textSize="30dp"
+        android:textColor="@android:color/black"
+        android:textSize="17dp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,24 +24,24 @@
 
     <TextView
         android:id="@+id/Menu"
-        android:layout_width="140dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="128dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="160dp"
         android:text="Menu"
         android:textColor="#100F0F"
         android:textSize="24sp"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/Entree"
-        android:layout_width="140dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="256dp"
+        android:layout_width="95dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="300dp"
         android:fontFamily="sans-serif-black"
         android:text="Entrees"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -55,9 +54,9 @@
 
     <TextView
         android:id="@+id/Plat"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="350dp"
+        android:layout_width="70dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="400dp"
         android:onClick="ClickON"
         android:text="Plats"
         android:textColor="#0C0C0C"
@@ -69,9 +68,9 @@
 
     <TextView
         android:id="@+id/Desserts"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="500dp"
         android:onClick="ClickON"
         android:text="Desserts"
         android:textColor="#090909"

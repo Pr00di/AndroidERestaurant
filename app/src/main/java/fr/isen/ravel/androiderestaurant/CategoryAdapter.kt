@@ -6,27 +6,26 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CategoryAdapter(private val items:ArrayList<String>) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+class CategoryAdapter(private val itemsList : List<String>) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-
-        val textView : TextView = itemView.findViewById(R.id.categoryActivityRv)
+        val textViewItem : TextView = itemView.findViewById(R.id.textViewItem)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup , viewType: Int): ViewHolder
-    { // creer un ViewHolder à chaque fois qu'il y a un element de getItemCount
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_category,parent,false)
+    { // creer autant de onCreateViewHolder qu'il y a d'item dans liste courante getItemCount
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item,parent,false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder , position: Int)
-    { // mettre les explication de la video youtube https://www.youtube.com/watch?v=e_Morfqqn1I&t=268s
-        holder.textView.text = items[position]
+    { // pareil que onCreateViewHolder appeler autant de fois qu'il y a d'item a representer dans la liste courante
+        holder.textViewItem.text = itemsList[position]
     }
 
     override fun getItemCount(): Int
+    // il veut savoir combien d'item vous avez besoin de representer dans la liste
     {
-        return items.size
+        return itemsList.size
     }
-
 }

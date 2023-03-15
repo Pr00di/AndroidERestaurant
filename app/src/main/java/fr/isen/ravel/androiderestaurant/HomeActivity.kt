@@ -12,6 +12,8 @@ import fr.isen.ravel.androiderestaurant.databinding.ActivityHomeBinding
 // l'instance val pomme = Pomme --> en Kotlin
 // l'instance Pomme pomme = New Pomme() --> en Java
 // une classe abstraite ne peux pas etre instancier/declarer
+// Le fichier XML list_item permet de définir la mise en page de chaque élément de la liste.
+// Dans ce fichier, nous avons créé un TextView avec l'identifiant textViewItem, qu'on peut utiliser dans notre CategoryAdapter.
 
 class HomeActivity : AppCompatActivity()
 {
@@ -19,10 +21,10 @@ class HomeActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_home)// On définit la vue de la page sur la vue de ctivity_home
 
         // Trouvez les éléments de menu dans votre mise en page
-        val entreesButton = findViewById<TextView>(R.id.Entree)
+        val entreesButton = findViewById<TextView>(R.id.Entree)// <TextView> car moi ici j'ai mis du texte et non un bouton sinon on aurai eu <Button>
         entreesButton.setOnClickListener {
             val intent = Intent(this , CategoryActivity::class.java)
             intent.putExtra("CATEGORY_NAME" , "Entrees")

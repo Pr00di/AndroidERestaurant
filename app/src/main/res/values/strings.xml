@@ -6,22 +6,46 @@
     <string name="home_Plats">Plats</string>
     <string name="home_Desserts">Desserts</string>
 
-    <string name="entree1">Entree 1</string>
-    <string name="entree2">Entree 2</string>
-    <string name="entree3">Entree 3</string>
-    <string name="entree4">Entree 4</string>
-    <string name="entree5">Entree 5</string>
+    <!-- Entrées -->
+    <string-array name="Entrees">
+        <item>Entree 1</item>
+        <item>Entree 2</item>
+        <item>Entree 3</item>
+        <item>Entree 4</item>
+        <item>Entree 5</item>
+        <item>Entree 6</item>
+        <item>Entree 7</item>
+        <item>Entree 8</item>
+        <item>Entree 9</item>
+        <item>Entree 10</item>
+    </string-array>
 
-    <string name="plats1">Plat 1</string>
-    <string name="plats2">Plat 2</string>
-    <string name="plats3">Plat 3</string>
-    <string name="plats4">Plat 4</string>
-    <string name="plats5">Plat 5</string>
+    <!-- Plats -->
+    <string-array name="Plats">
+        <item>Plat 1</item>
+        <item>Plat 2</item>
+        <item>Plat 3</item>
+        <item>Plat 4</item>
+        <item>Plat 5</item>
+        <item>Plat 6</item>
+        <item>Plat 7</item>
+        <item>Plat 8</item>
+        <item>Plat 9</item>
+        <item>Plat 10</item>
+    </string-array>
 
-    <string name="dessert1">Dessert 1</string>
-    <string name="dessert2">Dessert 2</string>
-    <string name="dessert3">Dessert 3</string>
-    <string name="dessert4">Dessert 4</string>
-    <string name="dessert5">Dessert 5</string>
+    <!-- Desserts -->
+    <string-array name="Desserts">
+        <item>Dessert 1</item>
+        <item>Dessert 2</item>
+        <item>Dessert 3</item>
+        <item>Dessert 4</item>
+        <item>Dessert 5</item>
+        <item>Dessert 6</item>
+        <item>Dessert 7</item>
+        <item>Dessert 8</item>
+        <item>Dessert 9</item>
+        <item>Dessert 10</item>
+    </string-array>
 
 </resources>
