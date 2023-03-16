@@ -7,16 +7,17 @@
     android:layout_height="match_parent"
     android:rotationX="0"
     android:visibility="visible"
+    android:background="@android:color/darker_gray"
     tools:context=".HomeActivity">
 
     <TextView
         android:id="@+id/Titre_resto"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="77dp"
+        android:layout_width="305dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="60dp"
         android:text="Bienvenue chez Toto"
         android:textColor="@android:color/black"
-        android:textSize="17dp"
+        android:textSize="32dp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

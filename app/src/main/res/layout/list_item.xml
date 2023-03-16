@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardBackgroundColor="@color/design_default_color_error"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="@android:color/holo_blue_dark"
     app:cardElevation="4dp">
 
     <!-- Vos vues à l'intérieur de la carte, par exemple des TextViews, des ImageViews, etc. -->
@@ -23,7 +23,7 @@
             android:id="@+id/textViewItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
     </LinearLayout>
