@@ -11,7 +11,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        val item = intent.getParcelableExtra<Detail_item>("item")
+        /*val item = intent.getParcelableExtra<Detail_item>("item")
         if (item != null) {
             val textViewName: TextView = findViewById(R.id.NamePlats)
             //val textViewDescription: TextView = findViewById(R.id.textViewDescription)
@@ -20,7 +20,7 @@ class DetailActivity : AppCompatActivity() {
             textViewName.text = item.nom
             //textViewDescription.text = item.description
             //textViewPrice.text = item.prix.toString()
-        }
+        }*/
     }
 
 

@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 
-class CategoryAdapter(private val itemsList : List<String>, private val onMenuItemClickListener: OnMenuItemClickListener) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>()
+class CategoryAdapter(private var itemsList : List<String> , private val onMenuItemClickListener: OnMenuItemClickListener) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>()
 {
     // Les : permettent l'heritage
 
@@ -45,6 +45,11 @@ class CategoryAdapter(private val itemsList : List<String>, private val onMenuIt
 
     interface OnMenuItemClickListener{
         fun onItemClick(itemsList: String)
+    }
+
+    fun updateItems(newItemsList: List<String>) {
+        itemsList = newItemsList
+        notifyDataSetChanged()
     }
 
     //fun updateDishes(dishesFromAPI:ArrayList<String>) {

@@ -2,11 +2,6 @@ package fr.isen.ravel.androiderestaurant
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-
-@Parcelize
-data class Detail_item(
-    val id: Int,
-    val nom: String,
-    val description: String,
-    val prix: Double
-) : Parcelable
+data class MenuResult(val data: List<Category>)
+data class Category(val name_fr: String, val items: List<MenuItem>)
+data class MenuItem(val name_fr: String, val description_fr: String, val price: String, val images: List<String>)
