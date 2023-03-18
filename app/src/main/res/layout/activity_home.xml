@@ -1,83 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
     android:rotationX="0"
     android:visibility="visible"
-    android:background="@android:color/darker_gray"
     tools:context=".HomeActivity">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="540dp"
+        android:layout_height="900dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        app:srcCompat="@drawable/home" />
 
     <TextView
         android:id="@+id/Titre_resto"
-        android:layout_width="305dp"
+        android:layout_width="330dp"
         android:layout_height="54dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="casual"
         android:text="Bienvenue chez Toto"
+        android:textAppearance="@android:style/TextAppearance.Holo"
         android:textColor="@android:color/black"
-        android:textSize="32dp"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Entree"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="256dp"
+        android:fontFamily="serif"
+        android:onClick="ClickON"
+        android:text="Entrees"
+        android:textColor="#0C0C0C"
+        android:textSize="40sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Plat"
+        android:layout_width="105dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="396dp"
+        android:fontFamily="serif"
+        android:onClick="ClickON"
+        android:text="Plats"
+        android:textColor="#0C0C0C"
+        android:textSize="40sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Menu"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="160dp"
-        android:text="Menu"
-        android:textColor="#100F0F"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:typeface="serif"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Entree"
-        android:layout_width="95dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="300dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Entrees"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#101010"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Plat"
-        android:layout_width="70dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="400dp"
-        android:onClick="ClickON"
-        android:text="Plats"
-        android:textColor="#0C0C0C"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/Desserts"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="500dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="528dp"
+        android:fontFamily="serif"
         android:onClick="ClickON"
         android:text="Desserts"
         android:textColor="#090909"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textSize="40sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

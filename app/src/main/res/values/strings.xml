@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">AndroidERestaurant</string>
-    <string name="home_title">Bienvenue</string>
-    <string name="home_Menu">Menu</string>
-    <string name="home_Entree">Entree</string>
-    <string name="home_Plats">Plats</string>
-    <string name="home_Desserts">Desserts</string>
+    <string name="home_title" translatable="false">Bienvenue</string>
+    <string name="home_Menu" translatable="false">Menu</string>
+    <string name="home_Entree" translatable="false">Entree</string>
+    <string name="home_Plats" translatable="false">Plats</string>
+    <string name="home_Desserts" translatable="false">Desserts</string>
 
     <!-- Entrées -->
     <string-array name="Entrees">
@@ -26,12 +26,6 @@
         <item>Plat 2</item>
         <item>Plat 3</item>
         <item>Plat 4</item>
-        <item>Plat 5</item>
-        <item>Plat 6</item>
-        <item>Plat 7</item>
-        <item>Plat 8</item>
-        <item>Plat 9</item>
-        <item>Plat 10</item>
     </string-array>
 
     <!-- Desserts -->
@@ -39,13 +33,6 @@
         <item>Dessert 1</item>
         <item>Dessert 2</item>
         <item>Dessert 3</item>
-        <item>Dessert 4</item>
-        <item>Dessert 5</item>
-        <item>Dessert 6</item>
-        <item>Dessert 7</item>
-        <item>Dessert 8</item>
-        <item>Dessert 9</item>
-        <item>Dessert 10 </item>
     </string-array>
 
 </resources>
