@@ -10,6 +10,8 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+        // permet d'afficher le layout activity_detail avec le detail du plats
+        // selectionner, le prix, l'image etc...
 
         /*val item = intent.getParcelableExtra<Detail_item>("item")
         if (item != null) {

@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardCornerRadius="10dp"
-    app:cardBackgroundColor="@android:color/holo_blue_dark"
     app:cardElevation="4dp">
 
     <!-- Vos vues à l'intérieur de la carte, par exemple des TextViews, des ImageViews, etc. -->
@@ -17,14 +16,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:background="@android:color/black">
 
         <TextView
             android:id="@+id/textViewItem"
+            android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textStyle="bold|italic" />
 
     </LinearLayout>
 

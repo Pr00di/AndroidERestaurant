@@ -27,10 +27,11 @@ class CategoryAdapter(private var itemsList : List<String> , private val onMenuI
     }
 
     override fun onBindViewHolder(holder: ViewHolder , position: Int)
-    { // pareil que onCreateViewHolder appeler autant de fois qu'il y a d'item a representer dans la liste courante
+    {   // pareil que onCreateViewHolder appeler autant de fois qu'il y a d'item a representer
+        // dans la liste courante
         holder.textViewItem.text = itemsList[position]
         holder.itemView.setOnClickListener{
-            onMenuItemClickListener.onItemClick(itemsList[position])
+             onMenuItemClickListener.onItemClick(itemsList[position])
         }
         //val dish = dishes[position]
         //holder.dishName.text = dish

@@ -27,7 +27,7 @@ class HomeActivity : AppCompatActivity()
         val entreesButton = findViewById<TextView>(R.id.Entree)// <TextView> car moi ici j'ai mis du texte et non un bouton sinon on aurai eu <Button>
         entreesButton.setOnClickListener {
             val intent = Intent(this , CategoryActivity::class.java)
-            intent.putExtra("CATEGORY_NAME" , "Entrees")
+            intent.putExtra("CATEGORY_NAME" , "Entrées")
             startActivity(intent)
         }
         val platsButton = findViewById<TextView>(R.id.Plat)

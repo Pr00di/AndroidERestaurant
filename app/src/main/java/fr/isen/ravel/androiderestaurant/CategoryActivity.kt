@@ -18,11 +18,11 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
-import fr.isen.ravel.androiderestaurant.MenuResult
-import fr.isen.ravel.androiderestaurant.Category
-import fr.isen.ravel.androiderestaurant.MenuItem
-
-
+import fr.isen.ravel.androiderestaurant.Data
+import fr.isen.ravel.androiderestaurant.Ingredients
+import fr.isen.ravel.androiderestaurant.Items
+import fr.isen.ravel.androiderestaurant.ListMenu
+import fr.isen.ravel.androiderestaurant.Prices
 
 class CategoryActivity : AppCompatActivity()
 {
@@ -39,8 +39,9 @@ class CategoryActivity : AppCompatActivity()
         recyclerView = findViewById(R.id.categoryActivityRv)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        //
         categoryAdapter = when (category) {
-            "Entrees" -> CategoryAdapter(resources.getStringArray(R.array.Entrees).toList(),object : CategoryAdapter.OnMenuItemClickListener
+            "Entrées" -> CategoryAdapter(resources.getStringArray(R.array.Entrees).toList(),object : CategoryAdapter.OnMenuItemClickListener
             {
                 override fun onItemClick(itemsList:String){
                     val intent = Intent(this@CategoryActivity, DetailActivity::class.java)
@@ -82,21 +83,42 @@ class CategoryActivity : AppCompatActivity()
         val request = JsonObjectRequest(
             Request.Method.POST, url, requestBody,
             { response ->
-                Log.d("ca marche", response.toString())
+                Log.d("ca marche", response.toString()) // Message dans le terminal de commande
 
-                // Parse JSON response using Gson
+                // Je parse le JSON avec la librairie GSON afin d'obtenir des Listes de données claires
                 val gson = Gson()
-                val menuResult = gson.fromJson(response.toString(), MenuResult::class.java)
+                val menuResult = gson.fromJson(response.toString(), ListMenu::class.java)
+                // Je viens recuperer la listMenu qui contient l'ensemble des données
 
-                // Filter menu items based on the selected category
+                // Je viens définir une variable qui va venir stocker la categorie selectionné
                 val selectedCategoryName = intent.getStringExtra("CATEGORY_NAME")
-                val selectedCategory = menuResult.data.find { it.name_fr == selectedCategoryName }
+
+                // Je viens filtrer l'ensemble des données en piochant dans la partie data
+                // de la variable menuResult qui contient elle-meme la ListMenu (qui contient elle les data)
+                val filteredItems : List<String> = menuResult.data
+                    .flatMap { it.items }
+                    .filter { item -> item.categNameFr == selectedCategoryName } // J'associe categNameFr avec selectedCategoryName
+                    .mapNotNull { menuItem -> menuItem.nameFr }
+
+                categoryAdapter.updateItems(filteredItems) // Je viens rafraichir l'adapteur pour qu'il m'affiche
+                // que les données comportant le bon cateNameFr
+
+
+                //val selectedCategory = menuResult.data.find { it.nameFr == selectedCategoryName }
+                // Filter menu items based on the selected category
+                //val selectedCategoryItems = menuResult.data.filter { it.nameFr == selectedCategoryName }
+
+                // Combine items from all categories with the same ID
+                //val combinedItems = selectedCategoryItems.flatMap { it.items }
 
                 // Update the adapter with the filtered menu items
+
+                /*val selectedCategory = menuResult.data.find { it.idCategory == selectedCategoryId }
+                // Update the adapter with the filtered menu items
                 selectedCategory?.let {
-                    val filteredItems = it.items.map { menuItem -> menuItem.name_fr }
+                    val filteredItems: List<String> = it.items.mapNotNull { menuItem -> menuItem.nameFr }
                     categoryAdapter.updateItems(filteredItems)
-                }
+                }*/
             },
             { error ->
                 Log.d("404 error", error.toString())
@@ -106,3 +128,4 @@ class CategoryActivity : AppCompatActivity()
 
 
 }
+
