@@ -8,7 +8,7 @@
 
     <!-- Entrées -->
     <string-array name="Entrees">
-        <item>Entree 1</item>
+      <!--  <item>Entree 1</item>
         <item>Entree 2</item>
         <item>Entree 3</item>
         <item>Entree 4</item>
@@ -17,22 +17,22 @@
         <item>Entree 7</item>
         <item>Entree 8</item>
         <item>Entree 9</item>
-        <item>Entree 10</item>
+        <item>Entree 10</item> -->
     </string-array>
 
     <!-- Plats -->
     <string-array name="Plats">
-        <item>Plat 1</item>
+    <!--<item>Plat 1</item>
         <item>Plat 2</item>
         <item>Plat 3</item>
-        <item>Plat 4</item>
+        <item>Plat 4</item> -->
     </string-array>
 
     <!-- Desserts -->
     <string-array name="Desserts">
-        <item>Dessert 1</item>
+    <!--<item>Dessert 1</item>
         <item>Dessert 2</item>
-        <item>Dessert 3</item>
+        <item>Dessert 3</item> -->
     </string-array>
 
 </resources>
