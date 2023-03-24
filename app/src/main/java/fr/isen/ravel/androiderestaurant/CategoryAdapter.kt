@@ -1,10 +1,10 @@
 package fr.isen.ravel.androiderestaurant
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
@@ -18,7 +18,7 @@ class CategoryAdapter(private var itemsList : List<Items> , private val onMenuIt
     {
         val textViewItem: TextView = itemView.findViewById(R.id.textViewItem)
         val imageViewItem: ImageView = itemView.findViewById(R.id.imageView) // Ajoutez un ImageView dans votre fichier de mise en page d'élément de liste
-        //val PriceViewItem: TextView = itemView.findViewById(R.id.PriceItem)
+        val textViewPrice: TextView = itemView.findViewById(R.id.textViewPrice)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup , viewType: Int): ViewHolder
@@ -33,17 +33,24 @@ class CategoryAdapter(private var itemsList : List<Items> , private val onMenuIt
         //holder.textViewItem.text = itemsList[position]
         val menuItem = itemsList[position]
 
+        holder.textViewItem.text = menuItem.nameFr
+
+        // Affichez le prix le plus bas disponible pour le plat
+        val lowestPrice = menuItem.prices.minByOrNull { it.price?.toDoubleOrNull() ?: Double.MAX_VALUE }
+            holder.textViewPrice.text = "${lowestPrice?.price}€"
+
         val imageUrl = itemsList[position].images.firstOrNull() // Remplacez cette ligne par la logique d'obtention de l'URL de l'image à partir de vos données
         if (!imageUrl.isNullOrEmpty()) { // le contraire de si elle nul ou vide
-            Picasso.get().load(imageUrl).into(holder.imageViewItem) // permet d'afficher les images
+            Picasso.get()
+                .load(imageUrl).into(holder.imageViewItem) // permet d'afficher les images
         } else {
            // Picasso.
             // Affichez une image par défaut ou masquez l'ImageView si aucune image n'est disponible
         }
 
-        holder.textViewItem.text = menuItem.nameFr
+
         holder.itemView.setOnClickListener{
-             onMenuItemClickListener.onItemClick(menuItem.nameFr ?: "")
+             onMenuItemClickListener.onItemClick(menuItem)
         }
 
         // Charger l'image en utilisant Picasso
@@ -59,7 +66,7 @@ class CategoryAdapter(private var itemsList : List<Items> , private val onMenuIt
     }
 
     interface OnMenuItemClickListener{
-        fun onItemClick(item: String)
+        fun onItemClick(item: Items)
     }
 
     fun updateItems(newItemsList: List<Items>) {

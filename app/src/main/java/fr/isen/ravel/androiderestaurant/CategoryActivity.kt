@@ -1,5 +1,6 @@
 package fr.isen.ravel.androiderestaurant
 
+import android.content.ClipData.Item
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -34,9 +35,11 @@ class CategoryActivity : AppCompatActivity()
             "Entrées" -> CategoryAdapter(emptyList() ,
                 object : CategoryAdapter.OnMenuItemClickListener
                 {
-                    override fun onItemClick(itemsList: String)
+                    override fun onItemClick(itemsList: Items)
                     {
                         val intent = Intent(this@CategoryActivity , DetailActivity::class.java)
+                        //val itemJson = Gson().toJson(itemsList)
+                        //intent.putExtra("itemsList", itemJson)
                         intent.putExtra("itemsList" , itemsList)
                         startActivity(intent)
                     }
@@ -45,9 +48,11 @@ class CategoryActivity : AppCompatActivity()
             "Plats" -> CategoryAdapter(emptyList() ,
                 object : CategoryAdapter.OnMenuItemClickListener
                 {
-                    override fun onItemClick(itemsList: String)
+                    override fun onItemClick(itemsList: Items)
                     {
                         val intent = Intent(this@CategoryActivity , DetailActivity::class.java)
+                        //val itemJson = Gson().toJson(itemsList)
+                        //intent.putExtra("itemsList", itemJson)
                         intent.putExtra("itemsList" , itemsList)
                         startActivity(intent)
                     }
@@ -56,9 +61,11 @@ class CategoryActivity : AppCompatActivity()
             "Desserts" -> CategoryAdapter(emptyList() ,
                 object : CategoryAdapter.OnMenuItemClickListener
                 {
-                    override fun onItemClick(itemsList: String)
+                    override fun onItemClick(itemsList: Items)
                     {
                         val intent = Intent(this@CategoryActivity , DetailActivity::class.java)
+                        //val itemJson = Gson().toJson(itemsList)
+                        //intent.putExtra("itemsList", itemJson)
                         intent.putExtra("itemsList" , itemsList)
                         startActivity(intent)
                     }
@@ -66,7 +73,7 @@ class CategoryActivity : AppCompatActivity()
 
             else -> CategoryAdapter(emptyList() , object : CategoryAdapter.OnMenuItemClickListener
             {
-                override fun onItemClick(itemsList: String)
+                override fun onItemClick(itemsList: Items)
                 {
                 }
             })

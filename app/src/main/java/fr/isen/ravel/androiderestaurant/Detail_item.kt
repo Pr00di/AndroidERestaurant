@@ -12,7 +12,7 @@ data class Data (
     @SerializedName("items"   ) var items  : ArrayList<Items> = arrayListOf()
     // On recupere la liste "Items"
 
-)
+):java.io.Serializable
 
 data class Ingredients (
 
@@ -24,7 +24,7 @@ data class Ingredients (
     @SerializedName("update_date" ) var updateDate : String? = null,
     @SerializedName("id_pizza"    ) var idPizza    : String? = null
 
-)
+):java.io.Serializable
 
 data class Items (
 
@@ -39,14 +39,14 @@ data class Items (
     @SerializedName("prices"        ) var prices      : ArrayList<Prices>      = arrayListOf()
     // On recupere les listes "Ingredients" et "Prices"
 
-)
+):java.io.Serializable
 
 data class ListMenu (
 
     @SerializedName("data" ) var data : ArrayList<Data> = arrayListOf()
     // On vient recuperer la list "Data"
 
-)
+):java.io.Serializable
 
 data class Prices (
 
@@ -58,4 +58,4 @@ data class Prices (
     @SerializedName("update_date" ) var updateDate : String? = null,
     @SerializedName("size"        ) var size       : String? = null
 
-)
+):java.io.Serializable
