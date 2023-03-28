@@ -9,13 +9,13 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="530dp"
+        android:layout_width="560dp"
         android:layout_height="800dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ImagePlats"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.876"
         app:srcCompat="@drawable/category" />
 
