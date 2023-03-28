@@ -72,15 +72,12 @@ class CategoryActivity : AppCompatActivity()
                 })
 
             else -> CategoryAdapter(emptyList() , object : CategoryAdapter.OnMenuItemClickListener
-            {
-                override fun onItemClick(itemsList: Items)
-                {
+            { override fun onItemClick(itemsList: Items) {
                 }
             })
         }
 
         recyclerView.adapter = categoryAdapter
-
         fetchMenu()
     }
 
@@ -118,19 +115,5 @@ class CategoryActivity : AppCompatActivity()
         Volley.newRequestQueue(this).add(request)
     }
 }
-
-    //val selectedCategory = menuResult.data.find { it.nameFr == selectedCategoryName }
-    // Filter menu items based on the selected category
-    //val selectedCategoryItems = menuResult.data.filter { it.nameFr == selectedCategoryName }
-
-    // Combine items from all categories with the same ID
-    //val combinedItems = selectedCategoryItems.flatMap { it.items }
-
-    // Update the adapter with the filtered menu items
-
-    /*val selectedCategory = menuResult.data.find { it.idCategory == selectedCategoryId }
-    // Update the adapter with the filtered menu items
-       selectedCategory?.let { val filteredItems: List<String> = it.items.mapNotNull { menuItem -> menuItem.nameFr }
-       categoryAdapter.updateItems(filteredItems) }*/
 
 

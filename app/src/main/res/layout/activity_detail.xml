@@ -7,16 +7,24 @@
     tools:context=".DetailActivity">
 
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/ImagePlats"
-        android:layout_width="409dp"
-        android:layout_height="162dp"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="530dp"
+        android:layout_height="800dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.003" />
+        app:layout_constraintTop_toBottomOf="@+id/ImagePlats"
+        app:layout_constraintVertical_bias="0.876"
+        app:srcCompat="@drawable/category" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/imageViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        tools:ignore="MissingConstraints" />
+
 
     <TextView
         android:id="@+id/NamePlats"
@@ -24,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="212dp"
         android:text="Name"
-        android:textColor="@android:color/black"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,14 +45,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingredients"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.407" />
+        app:layout_constraintVertical_bias="0.453" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
