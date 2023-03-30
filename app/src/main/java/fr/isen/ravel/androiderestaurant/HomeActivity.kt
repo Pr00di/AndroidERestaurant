@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 
 //la classe Pomme() va etre la declaration des elements desriptifs d'une pomme
 // l'instance val pomme = Pomme --> en Kotlin
@@ -27,18 +28,21 @@ class HomeActivity : AppCompatActivity()
             val intent = Intent(this , CategoryActivity::class.java)
             intent.putExtra("CATEGORY_NAME" , "Entrées")
             startActivity(intent)
+            Toast.makeText(this, "Liste des Entrées", Toast.LENGTH_SHORT).show()
         }
         val platsButton = findViewById<TextView>(R.id.Plat)
         platsButton.setOnClickListener {
             val intent = Intent(this , CategoryActivity::class.java)
             intent.putExtra("CATEGORY_NAME" , "Plats")
             startActivity(intent)
+            Toast.makeText(this, "Liste des Plats", Toast.LENGTH_SHORT).show()
         }
         val dessertsButton = findViewById<TextView>(R.id.Desserts)
         dessertsButton.setOnClickListener {
             val intent = Intent(this , CategoryActivity::class.java)
             intent.putExtra("CATEGORY_NAME" , "Desserts")
             startActivity(intent)
+            Toast.makeText(this, "Liste des Desserts", Toast.LENGTH_SHORT).show()
         }
     }
 

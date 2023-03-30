@@ -1,22 +1,24 @@
-
-
 package fr.isen.ravel.androiderestaurant
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
+import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
+import java.io.File
+import java.io.FileOutputStream
 import java.text.DecimalFormat
 
 class DetailActivity : AppCompatActivity() {
@@ -34,6 +36,38 @@ class DetailActivity : AppCompatActivity() {
         val decimalFormat = DecimalFormat("#.00")
         priceButtonView.text = "Prix: ${decimalFormat.format(totalPrice)} €"
     }
+
+    private fun addToCart(cartItem: CartItem) {
+        val cartItems = getCartItems()
+        cartItems.add(cartItem)
+        saveCartItems(cartItems)
+    }
+
+    private fun getCartItems(): ArrayList<CartItem> {
+        val file = File(filesDir, "cart.json")
+        if (!file.exists()) {
+            return ArrayList()
+        }
+        val json = file.readText()
+        return json.fromJson<ArrayList<CartItem>>() ?: ArrayList()
+    }
+
+    private fun saveCartItems(cartItems: ArrayList<CartItem>) {
+        val json = cartItems.toJson()
+        val file = File(filesDir, "cart.json")
+        FileOutputStream(file).use {
+            it.write(json.toByteArray())
+        }
+    }
+
+    private fun showAlertDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Article ajouté")
+            .setMessage("L'article a été ajouté au panier.")
+            .setPositiveButton("OK", DialogInterface.OnClickListener { _ , _ -> })
+            .show()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -76,6 +110,11 @@ class DetailActivity : AppCompatActivity() {
                 quantityTextView.text = quantity.toString()
                 updatePrice()
             }
+        }
+
+        priceButtonView.setOnClickListener {
+            addToCart(CartItem(itemName, quantity))
+            showAlertDialog()
         }
 
         // Initialiser le prix
@@ -139,6 +178,8 @@ class DetailActivity : AppCompatActivity() {
             }
         }
     }
+
+
 }
 
 
