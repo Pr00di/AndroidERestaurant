@@ -7,15 +7,12 @@
     <string name="home_Desserts" translatable="false">Desserts</string>
 
     <!-- Entrées -->
-    <string-array name="Entrees">
-    </string-array>
+    <string-array name="Entrees"></string-array>
 
     <!-- Plats -->
-    <string-array name="Plats">
-    </string-array>
+    <string-array name="Plats"></string-array>
 
     <!-- Desserts -->
-    <string-array name="Desserts">
-    </string-array>
+    <string-array name="Desserts"></string-array>
 
 </resources>

@@ -1,14 +1,16 @@
 package fr.isen.ravel.androiderestaurant
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toolbar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -28,6 +30,9 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var priceButtonView: Button
     private var quantity = 1
     var price = 0.0
+    private val CART_ITEM_COUNT_KEY = "cartItemCount"
+    private lateinit var sharedPreferences: SharedPreferences
+
 
     // Mettre à jour le prix en fonction de la quantité
     @SuppressLint("SetTextI18n")
@@ -41,6 +46,11 @@ class DetailActivity : AppCompatActivity() {
         val cartItems = getCartItems()
         cartItems.add(cartItem)
         saveCartItems(cartItems)
+        updateCartItemCount(cartItems.size)
+    }
+
+    private fun updateCartItemCount(count: Int) {
+        sharedPreferences.edit().putInt(CART_ITEM_COUNT_KEY, count).apply()
     }
 
     private fun getCartItems(): ArrayList<CartItem> {
@@ -72,8 +82,10 @@ class DetailActivity : AppCompatActivity() {
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+        sharedPreferences = getSharedPreferences("user_preferences", Context.MODE_PRIVATE)
 
         itemName = intent.getSerializableExtra("itemsList") as Items
+
 
         // Récupérer les éléments de la vue
         val imageViewPager = findViewById<ViewPager>(R.id.imageViewPager)
@@ -89,6 +101,9 @@ class DetailActivity : AppCompatActivity() {
         //On met à jour les infos de la selection
         nameView.text = itemName.nameFr
         descriptionView.text = itemName.ingredients.joinToString(",") { it.nameFr.orEmpty() }
+
+        // Configurez la barre d'outils avec l'icône de chariot
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (itemName.prices[0].price != null)
         {
@@ -121,6 +136,25 @@ class DetailActivity : AppCompatActivity() {
         updatePrice()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_cart -> {
+                val intent = Intent(this, CartActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
     class ImagePagerAdapter(fm: FragmentManager, private val imageUrls: List<String>) :
         FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
