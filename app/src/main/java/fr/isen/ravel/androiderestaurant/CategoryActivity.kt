@@ -1,6 +1,5 @@
 package fr.isen.ravel.androiderestaurant
 
-import android.content.ClipData.Item
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -35,12 +34,10 @@ class CategoryActivity : AppCompatActivity()
             "Entrées" -> CategoryAdapter(emptyList() ,
                 object : CategoryAdapter.OnMenuItemClickListener
                 {
-                    override fun onItemClick(itemsList: Items)
+                    override fun onItemClick(item: Items)
                     {
                         val intent = Intent(this@CategoryActivity , DetailActivity::class.java)
-                        //val itemJson = Gson().toJson(itemsList)
-                        //intent.putExtra("itemsList", itemJson)
-                        intent.putExtra("itemsList" , itemsList)
+                        intent.putExtra("itemsList" , item)
                         startActivity(intent)
                     }
                 })
@@ -48,12 +45,10 @@ class CategoryActivity : AppCompatActivity()
             "Plats" -> CategoryAdapter(emptyList() ,
                 object : CategoryAdapter.OnMenuItemClickListener
                 {
-                    override fun onItemClick(itemsList: Items)
+                    override fun onItemClick(item: Items)
                     {
                         val intent = Intent(this@CategoryActivity , DetailActivity::class.java)
-                        //val itemJson = Gson().toJson(itemsList)
-                        //intent.putExtra("itemsList", itemJson)
-                        intent.putExtra("itemsList" , itemsList)
+                        intent.putExtra("itemsList" , item)
                         startActivity(intent)
                     }
                 })
@@ -61,18 +56,16 @@ class CategoryActivity : AppCompatActivity()
             "Desserts" -> CategoryAdapter(emptyList() ,
                 object : CategoryAdapter.OnMenuItemClickListener
                 {
-                    override fun onItemClick(itemsList: Items)
+                    override fun onItemClick(item: Items)
                     {
                         val intent = Intent(this@CategoryActivity , DetailActivity::class.java)
-                        //val itemJson = Gson().toJson(itemsList)
-                        //intent.putExtra("itemsList", itemJson)
-                        intent.putExtra("itemsList" , itemsList)
+                        intent.putExtra("itemsList" , item)
                         startActivity(intent)
                     }
                 })
 
             else -> CategoryAdapter(emptyList() , object : CategoryAdapter.OnMenuItemClickListener
-            { override fun onItemClick(itemsList: Items) {
+            { override fun onItemClick(item: Items) {
                 }
             })
         }
@@ -108,7 +101,7 @@ class CategoryActivity : AppCompatActivity()
                 categoryAdapter.updateItems(filteredItems) // Je viens rafraichir l'adapteur pour qu'il m'affiche
                 // que les données comportant le bon cateNameFr
 
-            } ,
+            },
             { error ->
                 Log.d("404 error" , error.toString())
             })

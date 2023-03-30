@@ -1,7 +1,5 @@
 package fr.isen.ravel.androiderestaurant
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
 import com.google.gson.annotations.SerializedName
 
 

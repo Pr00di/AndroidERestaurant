@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
@@ -50,18 +49,10 @@ class CategoryAdapter(private var itemsList : List<Items> , private val onMenuIt
                 .error(R.drawable.placeholder_image) // Modification ici: ajout de error()
                 .into(holder.imageViewItem)
         }
-        else{
+        else
+        {
             holder.imageViewItem.setImageResource(R.drawable.placeholder_image)
         }
-
-        /*if (!imageUrl.isNullOrEmpty()) // le contraire de si elle nul ou vide
-        {
-            Picasso.get().load(imageUrl).into(holder.imageViewItem) // permet d'afficher les images
-        }
-        else // Affichage de l'image d'erreur
-        {
-           holder.imageViewItem.setImageResource(R.drawable.error_icon)
-        }*/
 
         holder.itemView.setOnClickListener{
              onMenuItemClickListener.onItemClick(menuItem)

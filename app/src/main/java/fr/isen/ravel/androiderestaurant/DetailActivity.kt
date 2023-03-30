@@ -2,6 +2,7 @@
 
 package fr.isen.ravel.androiderestaurant
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,20 +19,20 @@ import androidx.viewpager.widget.ViewPager
 import com.squareup.picasso.Picasso
 import java.text.DecimalFormat
 
-@Suppress("DEPRECATION")
 class DetailActivity : AppCompatActivity() {
 
-    lateinit var itemName: Items
     // Initialiser les variables
+    lateinit var itemName: Items
+    private lateinit var priceButtonView: Button
     private var quantity = 1
-    var price = 0.0// Remplacez cette valeur par le prix du plat
-    private lateinit var priceTextView: Button
+    var price = 0.0
 
     // Mettre à jour le prix en fonction de la quantité
+    @SuppressLint("SetTextI18n")
     private fun updatePrice() {
         val totalPrice = price * quantity.toDouble()
         val decimalFormat = DecimalFormat("#.00")
-        priceTextView.text = "Prix: ${decimalFormat.format(totalPrice)} €"
+        priceButtonView.text = "Prix: ${decimalFormat.format(totalPrice)} €"
     }
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -39,8 +40,6 @@ class DetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
 
         itemName = intent.getSerializableExtra("itemsList") as Items
-        Log.d("DetailActivity" , "itemSelectionne: $itemName")
-        //price = itemName.prices[0].price.
 
         // Récupérer les éléments de la vue
         val imageViewPager = findViewById<ViewPager>(R.id.imageViewPager)
@@ -51,11 +50,16 @@ class DetailActivity : AppCompatActivity() {
         val decreaseButton = findViewById<Button>(R.id.decreaseButton)
         val increaseButton = findViewById<Button>(R.id.increaseButton)
         val quantityTextView = findViewById<TextView>(R.id.QuantitySelected)
-        priceTextView = findViewById<Button>(R.id.buttonPrice)
+        priceButtonView = findViewById(R.id.buttonPrice)
 
         //On met à jour les infos de la selection
         nameView.text = itemName.nameFr
         descriptionView.text = itemName.ingredients.joinToString(",") { it.nameFr.orEmpty() }
+
+        if (itemName.prices[0].price != null)
+        {
+            price = itemName.prices[0].price!!.toDouble()
+        }
 
         // Gérer les événements de clic sur les boutons
         decreaseButton.setOnClickListener {
