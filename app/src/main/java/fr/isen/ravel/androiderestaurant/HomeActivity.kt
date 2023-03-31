@@ -52,6 +52,7 @@ class HomeActivity : AppCompatActivity()
     //Permet d'ajouter un log dans le terminal pour indiquer que l'activité Home est détruite
     override fun onDestroy() {
         super.onDestroy()
+        CartManager.clearCart()
         Log.d("MyActivity", "Home Activity destroyed")
     }
 }
