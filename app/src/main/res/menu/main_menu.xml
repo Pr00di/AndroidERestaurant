@@ -7,4 +7,5 @@
         android:icon="@drawable/shopping_cart"
         android:title="Panier"
         app:showAsAction="always" />
+
 </menu>

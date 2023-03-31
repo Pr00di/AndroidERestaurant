@@ -148,10 +148,6 @@ class DetailActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
-            android.R.id.home -> {
-                onBackPressed()
-                true
-            }
             else -> super.onOptionsItemSelected(item)
         }
     }
